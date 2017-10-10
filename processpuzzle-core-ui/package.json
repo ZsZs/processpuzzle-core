@@ -12,9 +12,9 @@
     "lint": "ng lint --type-check --format json > target/issues.json",
     "lint-watch": "ng lint --type-check",
     "e2e": "ng e2e",
-    "build-dev": "ng build --dev --aot --environment=dev",
-    "build-integ": "ng build --prod --aot --environment=integ",
-    "build-prod": "ng build --prod --aot --environment=prod"
+    "build-dev": "ng build --dev --aot=false --environment=dev",
+    "build-integ": "ng build --prod --aot=false --environment=integ",
+    "build-prod": "ng build --prod  --aot=false --environment=prod"
   },
   "private": true,
   "dependencies": {
