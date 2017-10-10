@@ -1,0 +1,1 @@
+start cmd /c "java -jar processpuzzle-core.jar --spring.profiles.active=local"

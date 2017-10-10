@@ -1,0 +1,10 @@
+<header>
+    <ng-template dynamic-template *ngFor="let component of headerComponents" [template]="component.selector" [extraModules]="extraModules"></ng-template>
+</header>
+<main>
+    <pp-content></pp-content>
+</main>
+<footer [ngClass]="{'page-footer': isFooterVisible }">
+    <ng-template dynamic-template *ngFor="let component of footerComponents" [template]="component.selector" [extraModules]="extraModules" [context]="desktop"></ng-template>
+</footer>
+  

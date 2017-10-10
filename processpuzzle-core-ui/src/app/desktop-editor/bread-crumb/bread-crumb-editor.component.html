@@ -1,0 +1,13 @@
+<div id="bread-crum-editor" materialize="modal" [materializeActions]="modalActions" class="modal">
+  <form [formGroup]="breadCrumbEditForm" (ngSubmit)="onSubmit()">
+    <div class="modal-content">
+      <h4>Edit Breadcrumb</h4>
+      <p>Breadcrumb trail is a graphical control element used as a navigational aid in user interfaces. It allows users to keep track of their locations within programs, documents, or websites.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn teal waves-effect" [disabled]="!breadCrumbEditForm.valid" (click)="onSubmit()">Save</button>
+      <button class="btn red waves-effect" (click)="onDelete()">Delete</button>
+      <button class="btn lime  waves-effect" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,16 @@
+<div id="footer-editor" materialize="modal" [materializeActions]="modalActions" class="modal modal-fixed-footer">
+  <form [formGroup]="footerEditForm" (ngSubmit)="onSubmit()">
+    <div class="modal-content">
+      <h4>Footer</h4>
+      <div class="form-group">
+        <label for="copyright">Copyright</label>
+        <input type="text" class="form-control" id="copyright" formControlName="copyrightText" placeholder="Copyright Text">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn teal waves-effect" type="submit" [disabled]="!footerEditForm.valid">Save</button>
+      <button class="btn red waves-effect" (click)="onDelete()">Delete</button>
+      <button class="btn lime  waves-effect" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0 http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+  <id>source</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <baseDirectory>/</baseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>${project.basedir}/</directory>
+      <outputDirectory>${file.separator}processpuzzle-core</outputDirectory>
+      <includes>
+        <include>start.bat</include>
+        <include>stop.bat</include>
+      </includes>
+    </fileSet>
+    
+    <fileSet>
+      <directory>${project.basedir}/target</directory>
+      <outputDirectory>${file.separator}processpuzzle-core</outputDirectory>
+      <includes>
+        <include>processpuzzle-core.jar</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</assembly>

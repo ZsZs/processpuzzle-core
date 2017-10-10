@@ -1,0 +1,12 @@
+server:
+  port: 9125
+  contextPath: /
+
+security:
+  headers:
+    cache: false
+
+endpoints:
+  shutdown:
+    sensitive: false
+    enabled: true

@@ -1,0 +1,11 @@
+<ul materialize id="slide-out" class="side-nav teal lighten-4">
+    <li><div><img src="./assets/images/intro-background.jpg"></div></li>
+    <li class="teal lighten-3"><a class="subheader"><i class="material-icons">web</i>Desktop Design</a></li>
+    <li><a [routerLink]="['/desktop-editor/breadcrumb']" (click)="hideEditor()">Breadcrumb...</a></li>
+    <li><a [routerLink]="['/desktop-editor/footer']" (click)="hideEditor()">Footer...</a></li>
+    <li><a [routerLink]="['/desktop-editor/navbar']" (click)="hideEditor()">Navigation bar...</a></li>
+    <li class="teal lighten-3"><a class="waves-effect"><i class="material-icons">description</i>Content Edit</a></li>
+    <li><a class="waves-effect">Add document...</a></li>
+    <li><a class="waves-effect">Delete document</a></li>
+</ul>
+<a style="visibility: hidden" materialize="sideNav" href="#" data-activates="slide-out" ngClass="toolButton" class="btn-floating right" [materializeActions]="modalActions" [materializeParams]="[{edge: 'left', closeOnClick: true, draggable: true}]"><i class="material-icons">web</i></a>

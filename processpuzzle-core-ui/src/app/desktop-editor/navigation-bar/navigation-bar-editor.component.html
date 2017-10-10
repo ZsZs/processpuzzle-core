@@ -1,0 +1,16 @@
+<div id="navigation-bar-editor" materialize="modal" [materializeActions]="modalActions" class="modal modal-fixed-footer">
+  <form [formGroup]="navbarEditForm" (ngSubmit)="onSubmit()">
+    <div class="modal-content">
+      <h4>Edit Navigation Bar</h4>
+        <div class="form-group">
+          <label for="brand">Brand</label>
+          <input type="text" class="form-control" id="brand" formControlName="brand" placeholder="Brand">
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn teal waves-effect" type="submit" [disabled]="!navbarEditForm.valid">Save</button>
+      <button class="btn red waves-effect" (click)="onDelete()">Delete</button>
+      <button class="btn lime  waves-effect" (click)="onCancel()">Cancel</button>
+    </div>
+  </form>
+</div>
