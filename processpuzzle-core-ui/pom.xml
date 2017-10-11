@@ -11,16 +11,6 @@
   </parent>
 
   <properties>
-    <DEPLOYMENT_ENVIRONMENT>dev</DEPLOYMENT_ENVIRONMENT>
-    <sonar.sources>src</sonar.sources>
-    <sonar.exclusions>**/*.html, src/main.ts, src/typings.d.ts, src/app/app.*.ts, src/environments/*.ts</sonar.exclusions>
-    <sonar.sourceEncoding>UTF-8</sonar.sourceEncoding>
-    <sonar.tests>src</sonar.tests>
-    <sonar.test.inclusions>**/*.spec.ts</sonar.test.inclusions>
-    <sonar.typescript.tslint.configPath>tsling.json</sonar.typescript.tslint.configPath>
-    <sonar.typescript.tslint.nodePath>node_modules/tslint/bin/tslint</sonar.typescript.tslint.nodePath>
-    <sonar.typescript.tslint.outputPath>target/issues.json</sonar.typescript.tslint.outputPath>
-    <sonar.typescript.lcov.reportPaths>target/coverage/lcov.info</sonar.typescript.lcov.reportPaths>
   </properties>
   
   <build>
@@ -28,65 +18,6 @@
       <plugin>
         <groupId>com.github.eirslett</groupId>
         <artifactId>frontend-maven-plugin</artifactId>
-        <configuration>
-          <nodeVersion>${node.version}</nodeVersion>
-          <npmVersion>${npm.version}</npmVersion>
-          <installDirectory>target</installDirectory>
-        </configuration>
-
-        <executions>
-          <execution>
-            <id>install node and npm</id>
-            <phase>process-sources</phase>
-            <goals>
-              <goal>install-node-and-npm</goal>
-            </goals>
-          </execution>
-
-          <execution>
-            <id>npm update</id>
-            <phase>process-source</phase>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <configuration>
-              <arguments>update</arguments>
-            </configuration>
-          </execution>
-
-          <execution>
-            <id>npm run-script tslint</id>
-            <phase>process-sources</phase>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <configuration>
-              <arguments>run-script lint</arguments>
-            </configuration>
-          </execution>
-
-          <execution>
-            <id>npm run-script test</id>
-            <phase>process-sources</phase>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <configuration>
-              <arguments>run-script test</arguments>
-            </configuration>
-          </execution>
-
-          <execution>
-            <id>npm run-script build</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>npm</goal>
-            </goals>
-            <configuration>
-              <arguments>run-script build-${DEPLOYMENT_ENVIRONMENT}</arguments>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>      
     </plugins>
   </build>

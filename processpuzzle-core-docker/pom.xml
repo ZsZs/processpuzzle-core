@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.processpuzzle</groupId>
+    <artifactId>processpuzzle-core</artifactId>
+    <version>0.0.3-SNAPSHOT</version>
+  </parent>
+  <artifactId>processpuzzle-core-docker</artifactId>
+  <packaging>pom</packaging>
+  <name>ProcessPuzzle Core - Docker</name>
+  <description>Create docker container for Core services and UI</description>
+  
+  <properties>
+    <ui.server.jar>${project.parent.artifactId}.jar</ui.server.jar>
+  </properties>
+  
+  <dependencies>
+    <!-- module dependencies -->
+    <dependency>
+      <groupId>com.processpuzzle</groupId>
+      <artifactId>processpuzzle-core-services</artifactId>
+      <version>0.0.3-SNAPSHOT</version>
+      <scope>compile</scope>
+      <type>pom</type>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+  
+</project>
