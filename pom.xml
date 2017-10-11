@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>processpuzzle-core</artifactId>
   <name>ProcessPuzzle Core</name>
-  <version>0.0.2</version>
+  <version>0.0.3-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <parent>
@@ -24,7 +24,7 @@
     <url>https://github.com/ZsZs/processpuzzle-core</url>
     <connection>scm:git:https://github.com/ZsZs/processpuzzle-core.git</connection>
     <developerConnection>scm:git:https://github.com/ZsZs/processpuzzle-core.git</developerConnection>
-    <tag>processpuzzle-core-0.0.2</tag>
+    <tag>processpuzzle-core-0.0.1-SNAPSHOT</tag>
   </scm>
 
 </project>
