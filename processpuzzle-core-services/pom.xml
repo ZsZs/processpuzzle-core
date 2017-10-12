@@ -7,7 +7,7 @@
   <parent>
     <groupId>com.processpuzzle</groupId>
     <artifactId>processpuzzle-core</artifactId>
-    <version>0.0.4</version>
+    <version>0.0.5-SNAPSHOT</version>
   </parent>
 
   <properties>
@@ -20,7 +20,7 @@
     <dependency>
       <groupId>com.processpuzzle</groupId>
       <artifactId>processpuzzle-core-ui</artifactId>
-      <version>0.0.4</version>
+      <version>0.0.5-SNAPSHOT</version>
       <scope>compile</scope>
       <type>pom</type>
     </dependency>
