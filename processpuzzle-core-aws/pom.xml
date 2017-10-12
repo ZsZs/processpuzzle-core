@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.processpuzzle</groupId>
     <artifactId>processpuzzle-core</artifactId>
-    <version>0.0.6</version>
+    <version>0.0.7-SNAPSHOT</version>
   </parent>
   <artifactId>processpuzzle-core-aws</artifactId>
   <name>ProcessPuzzle Core - AWS</name>
@@ -15,7 +15,7 @@
     <dependency>
       <groupId>com.processpuzzle</groupId>
       <artifactId>processpuzzle-core-docker</artifactId>
-      <version>0.0.6</version>
+      <version>0.0.7-SNAPSHOT</version>
       <scope>compile</scope>
       <type>pom</type>
     </dependency>
