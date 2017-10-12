@@ -2,7 +2,7 @@ sudo: required
 language: java
 jdk: oraclejdk8
 node_js:
-- 8.4.0
+- 8.5.0
 services:
 - docker
 install: true
@@ -33,7 +33,7 @@ before_install:
 - gpg --fast-import codesigning.asc
 - nvm install node
 - nvm use node
-- npm install -g npm@5.2
+- npm install -g npm@5.5.1
 - npm --version
 - if [ ${TRAVIS_BRANCH} == development ]; then DEPLOYMENT_ENVIRONMENT=dev; elif [ -n ${TRAVIS_TAG} ]; then DEPLOYMENT_ENVIRONMENT=prod; else DEPLOYMENT_ENVIRONMENT=integ; fi; export DEPLOYMENT_ENVIRONMENT;
 
@@ -65,11 +65,11 @@ deploy:
     secret_access_key:
       secure: oX+pp2+eLGk+oLlpBel+4hiJZd7gmPNfFepUBAHajfZTGL6Y/l1g6f4Un5rh+Y22OPiOVhdtAk4xsgzgfzmp4Vfzg6rgdt5TeJWoJ4c2oqXkR5xcDsMJ2Dm5UeHOy+MMKNDaXYuhkvDabpXzEYo/GZc+Lz2xWIkPIHByGOUJG1xNQAZ1Dl63N7Eai/N3e0N0A+VvMi/5V5ELeErO4gDXlSKeuTxaQmU+qkN9MzTN60e8cXByiSZoUoQFAVujqejukzCMPyy3AOHzDqQ3Dgs8xCM9eAjiPYeII7BwsPXDqExjZdKua8T6oBf1aRlHwY2udBcoSyWQidXT4bN6btxxBOmVTepmuDbw7QMF9ysokpBD0oME/7Ef7Eok5oEvfRSMlssCccLZ/rlQMiNmygtGn9pmoim3O9bnzA1q4ceDsO/vzl98bHvRvZ+xH1TwDH8czHwl1x4PQHPdT54ZOy0z2jpsEbhunqqU0UNcWXCYtZIPDdgl9UjW5y39mrtWHdDXs2Fel35BR2zG+qqy7gsIwE539dcteIGkrqQNvNg2Dy1v7Lcw9wfyNkaFedpP+bEWSp7ajLHmW6ndyp/POUhfktpsPdii7XdbHVkkgPHbJsfpj2zTCJRIOr4JxCQA5TLFmo8NR91xS5veUYu1bg0v3LSD5z8cEpJ97xJ5ymaNfIE=
     region: eu-central-1
-    app: ProcessPuzzle-CMS
+    app: ProcessPuzzle-Core
     env: dev-env
-    bucket_name: processpuzzle-cms
-    zip_file: "./processpuzzle-cms-aws/target/processpuzzle-cms.zip"
-    upload-dir: processpuzzle-cms-aws
+    bucket_name: processpuzzle-core
+    zip_file: "./processpuzzle-core-aws/target/processpuzzle-core.zip"
+    upload-dir: processpuzzle-core-aws
     skip_cleanup: true
     on:
       branch: development
@@ -80,9 +80,9 @@ deploy:
     region: eu-central-1
     app: ProcessPuzzle-CMS
     env: prod-env
-    bucket_name: processpuzzle-cms
-    zip_file: "./processpuzzle-cms-aws/target/processpuzzle-cms.zip"
-    upload-dir: processpuzzle-cms-aws
+    bucket_name: processpuzzle-core
+    zip_file: "./processpuzzle-core-aws/target/processpuzzle-core.zip"
+    upload-dir: processpuzzle-core-aws
     skip_cleanup: true
     on:
       branch: master  
@@ -91,9 +91,9 @@ deploy:
     api_key:
       secure: XYnuZULC/Qol43bAWqH6nBzkYtjNnERQq+PppaYtcWaB9sbDJQXBj2MqLF355BFI6IA9FSsx1GLdX5R3+tAJsteWyq6Xrk7WpLDSPdOYhU3BlUCJeU35YQkZ+rPPsHfDzBghTOEH3OxqcmozlUVqvg1JyaZ2fitGBNRuGCPN6k/y7fd3jtOT6BhSPAMIKodr/B+RW+sGfjl+ffFFjFXNIOyBa7Y6LINlJdgr5mJGmVQPsUiJeuVx58nBxuzRbKoX9d/vMbeiLkuFRVqEzmcDptl1MrqcGuVwxPzuT9wCfGSMUN8X/hss74ZTbmeAZ6jjk8xo8QPlqAxr62ChkFeGKRsZhiHcLfc6J7G0+JfY+Wwx/ra3EwBz4kfdZ34HgHy1c83AfuT4zj+UByhr3EXf5Xi+UfT5BcwgvdRsZ6yFw0CtBjukC2Bc5zdrusQzmpEK+S4a8X0jdDpLsDj0oJjuoM1DVEp83TiFah9/4F3c5qYRXHRjkIF46XHivWPhJwYKpWKGo/nUpJCxX0MgCUb+r+RcuxALiARAJmj7ZdcTKNfuSpdxFR4IZjVlR40ASRWJJEMs9cOWIsIjrggVeScFB0quBL/Va2SsCar8+6JaSahQg2LKT9P5lVS6KUNoLu7E7xSkkKvrBApU3awNyd92WygmAA3mIzVCeBD+wW8TZF4=
     file:
-    - target/processpuzzle-cms.zip
+    - processpuzzle-core-services/target/processpuzzle-core.zip
     skip_cleanup: true
     on:
       branch: master
       tags: true
-      repo: ZsZs/ProcessPuzzleCMS
+      repo: ZsZs/processpuzzle-core
