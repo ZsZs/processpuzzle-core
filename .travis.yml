@@ -59,13 +59,6 @@ deploy:
     -B
   on:
     branch: development
-- provider: script
-  skip_cleanup: true
-  script: mvn release:clean release:prepare -Prelease-sign-artifacts -DautoVersionSubm
-    --settings travis-maven-settings.xml -B
-  on:
-    branch: master
-    tags: true
 - provider: releases
   api_key:
     secure: XYnuZULC/Qol43bAWqH6nBzkYtjNnERQq+PppaYtcWaB9sbDJQXBj2MqLF355BFI6IA9FSsx1GLdX5R3+tAJsteWyq6Xrk7WpLDSPdOYhU3BlUCJeU35YQkZ+rPPsHfDzBghTOEH3OxqcmozlUVqvg1JyaZ2fitGBNRuGCPN6k/y7fd3jtOT6BhSPAMIKodr/B+RW+sGfjl+ffFFjFXNIOyBa7Y6LINlJdgr5mJGmVQPsUiJeuVx58nBxuzRbKoX9d/vMbeiLkuFRVqEzmcDptl1MrqcGuVwxPzuT9wCfGSMUN8X/hss74ZTbmeAZ6jjk8xo8QPlqAxr62ChkFeGKRsZhiHcLfc6J7G0+JfY+Wwx/ra3EwBz4kfdZ34HgHy1c83AfuT4zj+UByhr3EXf5Xi+UfT5BcwgvdRsZ6yFw0CtBjukC2Bc5zdrusQzmpEK+S4a8X0jdDpLsDj0oJjuoM1DVEp83TiFah9/4F3c5qYRXHRjkIF46XHivWPhJwYKpWKGo/nUpJCxX0MgCUb+r+RcuxALiARAJmj7ZdcTKNfuSpdxFR4IZjVlR40ASRWJJEMs9cOWIsIjrggVeScFB0quBL/Va2SsCar8+6JaSahQg2LKT9P5lVS6KUNoLu7E7xSkkKvrBApU3awNyd92WygmAA3mIzVCeBD+wW8TZF4=
