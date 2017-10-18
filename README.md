@@ -1,6 +1,6 @@
 ![ProcessPuzzle - Business Agility](https://raw.githubusercontent.com/ZsZs/processpuzzle-parent/master/processpuzzle-logo-small.jpg)
 # processpuzzle-core
-[![Build Status](https://travis-ci.org/ZsZs/ProcessPuzzleCMS.svg?branch=master)](https://travis-ci.org/ZsZs/processpuzzle-core)
+[![Build Status](https://travis-ci.org/ZsZs/processpuzzle-core.svg?branch=master)](https://travis-ci.org/ZsZs/processpuzzle-core)
 [![Quality Gate](https://sonarqube.com/api/badges/gate?key=com.processpuzzle:processpuzzle-core:development)](https://sonarqube.com/dashboard/index/com.processpuzzle:processpuzzle-core:development) 
 [![Code coverage ratio](https://sonarqube.com/api/badges/measure?key=com.processpuzzle:processpuzzle-core:development&metric=coverage)](https://sonarqube.com/dashboard/index/com.processpuzzle:processpuzzle-core:development) 
 [![Technical debt ratio](https://sonarqube.com/api/badges/measure?key=com.processpuzzle:processpuzzle-core:development&metric=sqale_debt_ratio)](https://sonarqube.com/dashboard/index/com.processpuzzle:processpuzzle-core:development) 
