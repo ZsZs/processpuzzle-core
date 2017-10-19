@@ -9,11 +9,11 @@
   <packaging>pom</packaging>
   <name>ProcessPuzzle Core - Docker</name>
   <description>Create docker container for Core services and UI</description>
-  
+
   <properties>
     <ui.server.jar>${project.parent.artifactId}.jar</ui.server.jar>
   </properties>
-  
+
   <dependencies>
     <!-- module dependencies -->
     <dependency>
@@ -33,5 +33,5 @@
       </plugin>
     </plugins>
   </build>
-  
+
 </project>
