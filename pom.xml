@@ -15,7 +15,6 @@
     <module>processpuzzle-core-services</module>
     <module>processpuzzle-core-ui</module>
     <module>processpuzzle-core-docker</module>
-    <module>processpuzzle-core-aws</module>
   </modules>
 
   <properties>
