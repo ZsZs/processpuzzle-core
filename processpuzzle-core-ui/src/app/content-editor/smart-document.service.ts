@@ -29,7 +29,7 @@ export class SmartDocumentService {
     const headers = new Headers({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin' : '*' });
     if ( document.id ) {
       return this.updateDocument( body, headers )
-    }else {
+    } else {
       return this.addNewDocument( body, headers )
     }
   }

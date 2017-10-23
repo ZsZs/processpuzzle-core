@@ -8,7 +8,7 @@
   <parent>
     <groupId>com.processpuzzle</groupId>
     <artifactId>processpuzzle-parent</artifactId>
-    <version>0.0.19-SNAPSHOT</version>
+    <version>0.0.18</version>
   </parent>
 
   <modules>

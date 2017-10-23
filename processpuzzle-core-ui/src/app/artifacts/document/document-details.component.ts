@@ -166,7 +166,7 @@ export class DocumentDetailsComponent implements AfterViewInit, OnInit {
 
     if ( this.isNew ) {
       this.createDocument()
-    }else {
+    } else {
       this.saveDocument();
     }
   }
@@ -182,7 +182,7 @@ export class DocumentDetailsComponent implements AfterViewInit, OnInit {
   private validateFileNameControl( control: FormControl ): {[s: string]: boolean } {
     if ( this.isNew && isNullOrUndefined( control.value )) {
       return { 'fileNameIsMissing' : true };
-    }else {
+    } else {
       return null;
     }
   }
