@@ -48,6 +48,7 @@ before_script:
 - npm install -g @angular/cli@latest
 - npm install -g @angular/compiler-cli
 - ng --version
+- npm install --prefix ./processpuzzle-core-ui
 - npm update --prefix ./processpuzzle-core-ui
 script:
 - mvn clean install org.jacoco:jacoco-maven-plugin:prepare-agent sonar:sonar --settings
