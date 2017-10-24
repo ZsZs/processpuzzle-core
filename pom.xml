@@ -2,20 +2,19 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>processpuzzle-core</artifactId>
   <name>ProcessPuzzle Core</name>
-  <version>0.0.8-SNAPSHOT</version>
+  <version>0.0.11-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <parent>
     <groupId>com.processpuzzle</groupId>
     <artifactId>processpuzzle-parent</artifactId>
-    <version>0.0.13</version>
+    <version>0.0.19</version>
   </parent>
 
   <modules>
     <module>processpuzzle-core-services</module>
     <module>processpuzzle-core-ui</module>
     <module>processpuzzle-core-docker</module>
-    <module>processpuzzle-core-aws</module>
   </modules>
 
   <properties>

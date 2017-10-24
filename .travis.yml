@@ -26,20 +26,17 @@ addons:
     - development
     - master
 before_install:
-- openssl aes-256-cbc -K $encrypted_c7c4aaef9ebb_key -iv $encrypted_c7c4aaef9ebb_iv
-  -in codesigning.asc.enc -out codesigning.asc -d
+- openssl aes-256-cbc -K $encrypted_c7c4aaef9ebb_key -iv $encrypted_c7c4aaef9ebb_iv -in codesigning.asc.enc -out codesigning.asc -d
 - nvm install node
 - nvm use node
 - npm install -g npm@5.5.1
 - npm --version
-- if [ ${TRAVIS_BRANCH} == development ]; then DEPLOYMENT_ENVIRONMENT=dev; elif [
-  -n ${TRAVIS_TAG} ]; then DEPLOYMENT_ENVIRONMENT=prod; else DEPLOYMENT_ENVIRONMENT=integ;
-  fi; export DEPLOYMENT_ENVIRONMENT;
+- if [ ${TRAVIS_BRANCH} == development ]; then DEPLOYMENT_ENVIRONMENT=dev; elif [ -n ${TRAVIS_TAG} ]; then DEPLOYMENT_ENVIRONMENT=prod; else DEPLOYMENT_ENVIRONMENT=integ; fi; export DEPLOYMENT_ENVIRONMENT;
 cache:
   directories:
   - "$HOME/.m2"
   - "$HOME/.sonar/cache"
-  - "./img-web/node_modules"
+  - "./processpuzzle-core-ui/node_modules"
 before_script:
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
@@ -51,7 +48,11 @@ before_script:
 - npm install -g @angular/cli@latest
 - npm install -g @angular/compiler-cli
 - ng --version
-- npm update --prefix ./processpuzzle-cms-ui
+- npm install --prefix ./processpuzzle-core-ui
+- npm update --prefix ./processpuzzle-core-ui
+- ls ./processpuzzle-core-ui
+- ls ./processpuzzle-core-ui/node_modules
+
 script:
 - mvn clean install org.jacoco:jacoco-maven-plugin:prepare-agent sonar:sonar --settings
   travis-maven-settings.xml -B
@@ -62,13 +63,6 @@ deploy:
     -B
   on:
     branch: development
-- provider: script
-  skip_cleanup: true
-  script: mvn release:clean release:prepare -Prelease-sign-artifacts -DautoVersionSubm
-    --settings travis-maven-settings.xml -B
-  on:
-    branch: master
-    tags: true
 - provider: releases
   api_key:
     secure: XYnuZULC/Qol43bAWqH6nBzkYtjNnERQq+PppaYtcWaB9sbDJQXBj2MqLF355BFI6IA9FSsx1GLdX5R3+tAJsteWyq6Xrk7WpLDSPdOYhU3BlUCJeU35YQkZ+rPPsHfDzBghTOEH3OxqcmozlUVqvg1JyaZ2fitGBNRuGCPN6k/y7fd3jtOT6BhSPAMIKodr/B+RW+sGfjl+ffFFjFXNIOyBa7Y6LINlJdgr5mJGmVQPsUiJeuVx58nBxuzRbKoX9d/vMbeiLkuFRVqEzmcDptl1MrqcGuVwxPzuT9wCfGSMUN8X/hss74ZTbmeAZ6jjk8xo8QPlqAxr62ChkFeGKRsZhiHcLfc6J7G0+JfY+Wwx/ra3EwBz4kfdZ34HgHy1c83AfuT4zj+UByhr3EXf5Xi+UfT5BcwgvdRsZ6yFw0CtBjukC2Bc5zdrusQzmpEK+S4a8X0jdDpLsDj0oJjuoM1DVEp83TiFah9/4F3c5qYRXHRjkIF46XHivWPhJwYKpWKGo/nUpJCxX0MgCUb+r+RcuxALiARAJmj7ZdcTKNfuSpdxFR4IZjVlR40ASRWJJEMs9cOWIsIjrggVeScFB0quBL/Va2SsCar8+6JaSahQg2LKT9P5lVS6KUNoLu7E7xSkkKvrBApU3awNyd92WygmAA3mIzVCeBD+wW8TZF4=

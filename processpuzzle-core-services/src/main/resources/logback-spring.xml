@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <springProfile name="unit-test">
+    <property name="LOG_PATH" value="target/logs" />
+  </springProfile>
+
+  <springProfile name="local">
+    <property name="LOG_PATH" value="/var/log/processpuzzle-core" />
+  </springProfile>
+
+  <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="RollingFile-Appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${LOG_PATH}/ecm-gateway.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${LOG_PATH}/ecm-gateway.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+      <maxHistory>30</maxHistory>
+      <totalSizeCap>1GB</totalSizeCap>
+    </rollingPolicy>
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  
+  <appender name="AsyncFile-Appender" class="ch.qos.logback.classic.AsyncAppender">
+    <appender-ref ref="RollingFile-Appender" />
+  </appender>
+
+  <logger name="org.springframework" level="WARN" />
+  <logger name="org.springframework.boot.autoconfigure.security" level="INFO" />
+  <logger name="org.springframework.ws.client.MessageTracing" level="TRACE" />
+  <logger name="org.springframework.ws.server.MessageTracing" level="TRACE" />
+  <logger name="org.springframework.security" level="INFO" />
+  <logger name="org.apache.http.wire" level="ERROR" />
+  <logger name="org.apache.http" level="DEBUG" />
+  <logger name="com.processpuzzle.core" level="DEBUG" />
+
+  <root level="INFO">
+    <springProfile name="unit-test">
+      <appender-ref ref="CONSOLE" />
+    </springProfile>
+    
+    <springProfile name="local">
+      <appender-ref ref="AsyncFile-Appender" />
+    </springProfile>
+  </root>
+</configuration>
