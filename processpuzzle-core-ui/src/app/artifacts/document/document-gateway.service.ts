@@ -3,7 +3,7 @@ import { UrlBuilder } from '../../utility/url-builder';
 import { Observable } from 'rxjs/Observable';
 import { Document } from './document';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {JsonMapper} from '../../utility/json-mapper';
+import {JsonMapper} from 'processpuzzle-util-ui';
 
 @Injectable()
 export class DocumentGateway {

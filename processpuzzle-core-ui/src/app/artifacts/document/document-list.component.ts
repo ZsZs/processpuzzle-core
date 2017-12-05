@@ -4,7 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Document } from './document';
 import { DocumentGateway } from './document-gateway.service';
 import { isNullOrUndefined } from 'util';
-import { JsonMapper } from '../../utility/json-mapper';
+import { JsonMapper } from 'processpuzzle-util-ui';
 import { UrlBuilder } from '../../utility/url-builder';
 
 @Component( {
@@ -37,7 +37,7 @@ import { UrlBuilder } from '../../utility/url-builder';
        padding: 0 0.5rem;
    }` ]
 } )
-export class DocumentListComponent implements AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnInit {
+export class DocumentListComponent implements OnInit {
    public static readonly SELECTED_DOCUMENT_PARAM = 'selectedDocument';
    documents: Document[];
    public selectedDocument: Document;
@@ -56,22 +56,6 @@ export class DocumentListComponent implements AfterContentInit, AfterContentChec
    }
 
    // event handling methods
-   ngAfterContentInit(): void {
-      console.log( 'AfterContentInit' );
-   }
-
-   ngAfterContentChecked(): void {
-      console.log( 'AfterContentChecked' );
-   }
-
-   ngAfterViewInit(): void {
-      console.log( 'AfterViewInit' );
-   }
-
-   ngAfterViewChecked(): void {
-      console.log( 'AfterViewChecked' );
-   }
-
    ngOnInit() {
       this.retrieveDocuments();
       this.backRouterLink = this.route.snapshot.queryParamMap.get( this.ROUTER_LINK_PARAM );

@@ -16,7 +16,7 @@ import {isNullOrUndefined} from 'util';
 export class DocumentImageComponent implements OnInit {
   private readonly FILE_SERVICE_PROPERTIES = 'fileService';
   @Input() document: Document;
-  private resourcePath = 'files';
+  private readonly resourcePath = 'files';
   private urlBuilder = new UrlBuilder( this.FILE_SERVICE_PROPERTIES, this.resourcePath );
 
   // public accessors and mutators

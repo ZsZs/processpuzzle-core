@@ -11,7 +11,6 @@ describe('Document entity', () => {
   const jsonObject = { 'title': 'Test document', 'fileName': 'classpath:sampleDocuments/SplashForm.png', 'mimeType': 'image/png', 'path': ''};
 
   const jsonConvert: JsonConvert = new JsonConvert();
-  jsonConvert.operationMode = OperationMode.LOGGING; // print some debug data
   jsonConvert.ignorePrimitiveChecks = false; // don't allow assigning number to string etc.
   jsonConvert.valueCheckingMode = ValueCheckingMode.DISALLOW_NULL; // never allow null
 

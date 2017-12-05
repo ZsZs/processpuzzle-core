@@ -55,10 +55,11 @@ import {isNullOrUndefined} from 'util';
   styles: []
 })
 export class DocumentDetailsComponent implements AfterViewInit, OnInit {
-  document: Document;
+  public document: Document;
   public dataForm: FormGroup;
   isNew = false;
   private file: File;
+  private listRoute = '/management/documents';
 
   constructor(private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder, private documentGateway: DocumentGateway) {
   }
@@ -72,17 +73,7 @@ export class DocumentDetailsComponent implements AfterViewInit, OnInit {
 
   public ngOnInit() {
     this.initForm();
-    this.route.params.subscribe((params: Params) => {
-      const id = params['id'];
-      if (!isNullOrUndefined(id)) {
-        if (id === 'new') {
-          this.newDocument();
-        } else {
-          this.isNew = false;
-          this.retrieveDocument(id);
-        }
-      }
-    });
+    this.subscribeToRoute();
   }
 
   onSubmit() {
@@ -115,7 +106,7 @@ export class DocumentDetailsComponent implements AfterViewInit, OnInit {
   }
 
   private navigateToList() {
-    this.router.navigate(['/management/documents']);
+    this.router.navigate([this.listRoute]);
   }
 
   private newDocument() {
@@ -169,6 +160,20 @@ export class DocumentDetailsComponent implements AfterViewInit, OnInit {
     } else {
       this.saveDocument();
     }
+  }
+
+  private subscribeToRoute(): void {
+     this.route.params.subscribe((params: Params) => {
+        const id = params['id'];
+        if (!isNullOrUndefined(id)) {
+           if (id === 'new') {
+              this.newDocument();
+           } else {
+              this.isNew = false;
+              this.retrieveDocument(id);
+           }
+        }
+     });
   }
 
   private updateForm(): void {

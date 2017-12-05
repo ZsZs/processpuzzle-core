@@ -1,3 +1,5 @@
+import { isNullOrUndefined } from 'util';
+
 import { environment } from '../../environments/environment';
 
 export class UrlBuilder {
@@ -7,7 +9,7 @@ export class UrlBuilder {
       let resourceUrl = environment[this.serviceProperties].protocol;
       resourceUrl += '//' + environment[this.serviceProperties].host;
       resourceUrl += Boolean( environment[this.serviceProperties].contextPath ) ? '/' + environment[this.serviceProperties].contextPath : '';
-      resourceUrl += '/' + this.resourcePath;
+      resourceUrl += isNullOrUndefined( this.resourcePath ) ? '' : '/' + this.resourcePath;
       resourceUrl += Boolean( subResource ) ? '/' + subResource : '';
       return resourceUrl;
    }

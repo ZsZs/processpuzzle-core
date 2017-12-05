@@ -7,7 +7,7 @@ import { Document } from './document';
 import { DocumentComponent } from './document.component';
 import { DocumentListComponent } from './document-list.component';
 import { DocumentGateway } from './document-gateway.service';
-import { JsonMapper } from '../../utility/json-mapper';
+import { JsonMapper } from 'processpuzzle-util-ui';
 
 describe('DocumentComponent', () => {
   const DOCUMENT_FILE_NAME = 'SplashForm.png';

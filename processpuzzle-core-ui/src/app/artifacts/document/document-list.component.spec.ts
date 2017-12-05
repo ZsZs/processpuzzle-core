@@ -6,14 +6,15 @@ import { Document } from './document';
 import { DocumentListComponent } from './document-list.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { DocumentGateway } from './document-gateway.service';
-import { JsonMapper } from '../../utility/json-mapper';
+import { JsonMapper } from 'processpuzzle-util-ui';
 import { By } from '@angular/platform-browser';
 
 describe( 'DocumentListComponent', () => {
    const DOCUMENT_FILE_NAME = 'SplashForm.png';
    const DOCUMENT_MIME_TYPE = 'image/png';
    const DOCUMENT_PATH = 'sampleDocuments';
-   const document = new Document( DOCUMENT_FILE_NAME, DOCUMENT_MIME_TYPE, DOCUMENT_PATH );
+   const DOCUMENT_TITLE = 'Test document';
+   const testDocument = new Document( DOCUMENT_TITLE, DOCUMENT_FILE_NAME, DOCUMENT_MIME_TYPE, DOCUMENT_PATH );
 
    let component: DocumentListComponent;
    let fixture: ComponentFixture<DocumentListComponent>;
@@ -28,6 +29,14 @@ describe( 'DocumentListComponent', () => {
    };
 
    beforeEach( async( () => {
+      const documentGatewayStub = {
+         subject: new Subject<Document>(),
+
+         findAll(): Observable<Document[]> {
+            return Observable.of( [testDocument] );
+         }
+      };
+
       TestBed.configureTestingModule( {
          imports: [ RouterTestingModule ],
          declarations: [ DocumentListComponent ],
@@ -62,5 +71,9 @@ describe( 'DocumentListComponent', () => {
       expect( buttons[1].nativeElement.textContent ).toContain( 'Open' );
       expect( buttons[2].nativeElement.textContent ).toContain( 'Delete' );
       expect( buttons[3].nativeElement.textContent ).toContain( 'Attach' );
-   } );
+   });
+
+   it( 'retrieves all the document from the gateway', () => {
+
+   });
 } );

@@ -40,14 +40,15 @@
     "ngx-dynamic-template": "^2.1.24",
     "node": "^8.3.0",
     "phantomjs": "^2.1.7",
-    "rxjs": "^5.5.1",
+    "processpuzzle-util-ui": "0.0.7",
+    "rxjs": "^5.5.2",
     "ts-metadata-helper": "0.0.4",
     "zone.js": "^0.8.18"
   },
   "devDependencies": {
     "@angular/cli": "^1.4.9",
     "@angular/compiler-cli": "^4.4.6",
-    "@types/jasmine": "2.6.0",
+    "@types/jasmine": "2.6.2",
     "@types/jasmine-matchers": "^0.2.30",
     "@types/node": "^8.0.47",
     "codelyzer": "^3.2.2",

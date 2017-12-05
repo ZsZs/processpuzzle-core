@@ -3,7 +3,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 
 import { Document } from './document';
 import { DocumentGateway } from './document-gateway.service';
-import {JsonMapper} from '../../utility/json-mapper';
+import { JsonMapper } from 'processpuzzle-util-ui';
 
 describe('DocumentGateway', () => {
   const DOCUMENT_CONTENT = 'Hello World';

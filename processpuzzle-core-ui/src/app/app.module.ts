@@ -22,12 +22,14 @@ import { DesktopEditorMenuComponent } from './desktop-editor/desktop-editor-menu
 import { DesktopEditorToolbarComponent } from './desktop-editor/desktop-editor-toolbar.component';
 import { FooterEditorComponent } from './desktop-editor/footer/footer-editor.component';
 import { environment } from '../environments/environment';
-import { HttpLoggingInterceptor } from './utility/http-logging';
+import { HttpLoggingInterceptor } from 'processpuzzle-util-ui';
 import { IntroComponent } from './intro.component';
 import { NavigationBarEditorComponent } from './desktop-editor/navigation-bar/navigation-bar-editor.component';
 import { NavigationBarService } from './desktop-editor/navigation-bar/navigation-bar.service';
 import { SmartDocumentComponent } from './content-editor/smart-document.component';
 import { ContentComponent } from './content-editor/content.component';
+
+import { ProcessPuzzleUtilkModule } from 'processpuzzle-util-ui';
 
 const DynamicTemplateModule = NgxDynamicTemplateModule.forRoot({ routes: APP_ROUTES });
 
@@ -54,6 +56,7 @@ const DynamicTemplateModule = NgxDynamicTemplateModule.forRoot({ routes: APP_ROU
     HttpClientModule,
     MaterializeModule,
     ModalModule.forRoot(),
+    ProcessPuzzleUtilkModule,
     ReactiveFormsModule,
     RouterModule.forRoot( APP_ROUTES )
   ],
