@@ -19,15 +19,6 @@ describe( 'DocumentListComponent', () => {
    let component: DocumentListComponent;
    let fixture: ComponentFixture<DocumentListComponent>;
 
-   const documentGatewayStub = {
-      subject: new Subject<Document>(),
-
-      findAll(): Observable<Document[]> {
-         this.subject.next( [ document ] );
-         return this.subject.asObservable();
-      }
-   };
-
    beforeEach( async( () => {
       const documentGatewayStub = {
          subject: new Subject<Document>(),
