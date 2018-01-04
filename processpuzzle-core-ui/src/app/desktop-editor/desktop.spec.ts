@@ -18,12 +18,11 @@ describe('Desktop', () => {
 
    it('breadcrumb property can be updated', () => {
       expect( desktop.breadCrumb ).toBeUndefined();
-      desktop.watchDesktopChange().subscribe( message ) => {
+      desktop.watchDesktopChange().subscribe(( message ) => {
          desktop.updateBreadCrumb( breadcrumb );
          expect( desktop.breadCrumb ).toBe( breadcrumb );
-         expect( message ).toBe( "")
-      }
-
+         expect( message ).toBe( '' );
+      });
    });
 
    it('footer property can be updated', () => {
