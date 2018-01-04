@@ -1,4 +1,4 @@
-import { Desktop } from './desktop';
+import { Desktop, DesktopEvent } from './desktop';
 import { BreadCrumb } from './bread-crumb/bread-crumb';
 import { Footer } from './footer/footer';
 
@@ -16,12 +16,12 @@ describe('Desktop', () => {
       expect( desktop ).toBeDefined();
    });
 
-   it('breadcrumb property can be updated', () => {
+   it('breadcrumb property can be updated and notifies subscribers about desktop change', () => {
       expect( desktop.breadCrumb ).toBeUndefined();
-      desktop.watchDesktopChange().subscribe(( message ) => {
+      desktop.watchDesktopChange().subscribe(( message: DesktopEvent ) => {
          desktop.updateBreadCrumb( breadcrumb );
          expect( desktop.breadCrumb ).toBe( breadcrumb );
-         expect( message ).toBe( '' );
+         expect( message ).toBe( DesktopEvent.UpdateBreadcrumb );
       });
    });
 

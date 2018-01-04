@@ -12,10 +12,19 @@ export enum ContentActions {
   SaveContent
 }
 
+export enum DesktopEvent {
+  DeleteBreadcrumb,
+  DeleteFooter,
+  DeleteNavigationBar,
+  UpdateBreadcrumb,
+  UpdateFooter,
+  UpdateNavigationBar
+}
+
 @Injectable()
 export class Desktop {
   private contentActionSubject = new Subject<ContentActions>();
-  private desktopTemplateSource = new Subject<string>();
+  private desktopTemplateSource = new Subject<DesktopEvent>();
   private _breadCrumb: BreadCrumb;
   private _footer: Footer;
   private _navigationBar: NavigationBar;
@@ -28,17 +37,17 @@ export class Desktop {
   // public accessors and mutators
   deleteBreadCrumb () {
     this._breadCrumb = null;
-    this.announceDesktopChanged();
+    this.announceDesktopChanged( DesktopEvent.DeleteBreadcrumb );
   }
 
   deleteFooter() {
     this._footer = null;
-    this.announceDesktopChanged();
+    this.announceDesktopChanged( DesktopEvent.DeleteFooter );
   }
 
   deleteNavigationBar() {
     this._navigationBar = null;
-    this.announceDesktopChanged();
+    this.announceDesktopChanged( DesktopEvent.DeleteNavigationBar );
   }
 
   contentAction( action: ContentActions ) {
@@ -54,24 +63,24 @@ export class Desktop {
 
   updateBreadCrumb ( newBreadCrumb: BreadCrumb ) {
     this._breadCrumb = newBreadCrumb;
-    this.announceDesktopChanged();
+    this.announceDesktopChanged( DesktopEvent.UpdateBreadcrumb );
   }
 
   updateFooter ( newFooter: Footer ) {
     this._footer = newFooter;
-    this.announceDesktopChanged();
+    this.announceDesktopChanged( DesktopEvent.UpdateFooter );
   }
 
   updateNavigationBar ( newNavigationBar: NavigationBar ) {
     this._navigationBar = newNavigationBar;
-    this.announceDesktopChanged();
+    this.announceDesktopChanged( DesktopEvent.UpdateNavigationBar );
   }
 
    watchContentAction(): Observable<ContentActions> {
       return this.contentActionSubject.asObservable();
    }
 
-  watchDesktopChange(): Observable<string> {
+  watchDesktopChange(): Observable<DesktopEvent> {
     return this.desktopTemplateSource.asObservable();
   }
 
@@ -81,7 +90,7 @@ export class Desktop {
   public get navigationBar(): NavigationBar { return this._navigationBar; }
 
   // protected, private helper methods
-  private announceDesktopChanged() {
-    this.desktopTemplateSource.next();
+  private announceDesktopChanged( message: DesktopEvent ) {
+    this.desktopTemplateSource.next( message );
   }
 }
