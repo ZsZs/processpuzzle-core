@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 import { Observable } from 'rxjs/Observable';
-import {isNullOrUndefined} from 'util';
+import { isNullOrUndefined } from 'util';
 
 import {NavigationBar} from './navigation-bar/navigation-bar';
 import {BreadCrumb} from './bread-crumb/bread-crumb';
@@ -35,6 +35,10 @@ export class Desktop {
   constructor() { }
 
   // public accessors and mutators
+  contentAction( action: ContentActions ) {
+    this.announceContentAction( action );
+  }
+  
   deleteBreadCrumb () {
     this._breadCrumb = null;
     this.announceDesktopChanged( DesktopEvent.DeleteBreadcrumb );
@@ -48,10 +52,6 @@ export class Desktop {
   deleteNavigationBar() {
     this._navigationBar = null;
     this.announceDesktopChanged( DesktopEvent.DeleteNavigationBar );
-  }
-
-  contentAction( action: ContentActions ) {
-    this.contentActionSubject.next( action );
   }
 
   hasElements (): boolean {
@@ -76,9 +76,9 @@ export class Desktop {
     this.announceDesktopChanged( DesktopEvent.UpdateNavigationBar );
   }
 
-   watchContentAction(): Observable<ContentActions> {
-      return this.contentActionSubject.asObservable();
-   }
+  watchContentAction(): Observable<ContentActions> {
+    return this.contentActionSubject.asObservable();
+  }
 
   watchDesktopChange(): Observable<DesktopEvent> {
     return this.desktopTemplateSource.asObservable();
@@ -90,6 +90,10 @@ export class Desktop {
   public get navigationBar(): NavigationBar { return this._navigationBar; }
 
   // protected, private helper methods
+  private announceContentAction( action: ContentActions ) {
+    this.contentActionSubject.next( action );
+  }
+  
   private announceDesktopChanged( message: DesktopEvent ) {
     this.desktopTemplateSource.next( message );
   }

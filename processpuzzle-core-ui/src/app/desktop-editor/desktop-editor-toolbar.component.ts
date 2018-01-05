@@ -16,6 +16,7 @@ import { ContentActions, Desktop } from './desktop';
   `,
   styles: []
 })
+
 export class DesktopEditorToolbarComponent implements OnInit {
    @Output() onShowEditorEvent = new EventEmitter<boolean>();
 

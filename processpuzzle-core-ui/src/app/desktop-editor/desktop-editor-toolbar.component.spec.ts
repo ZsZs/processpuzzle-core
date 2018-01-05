@@ -11,8 +11,7 @@ describe('DesktopEditorToolbarComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ DesktopEditorToolbarComponent ],
       providers:    [ Desktop ]
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
