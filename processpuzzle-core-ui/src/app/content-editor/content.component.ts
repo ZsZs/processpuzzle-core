@@ -9,15 +9,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ContentComponent implements OnInit {
 
-   constructor( private route: ActivatedRoute ) {}
+  constructor( private route: ActivatedRoute ) {}
 
-   // public accessors and mutators
-   editContent() {
+  // public accessors and mutators
+  editContent() {
     console.log('Edit content!');
-   }
+  }
 
-   // event handling methods
+  // event handling methods
   ngOnInit() {
-     console.log( this.route.component );
+    console.log( this.route.component );
   }
 }

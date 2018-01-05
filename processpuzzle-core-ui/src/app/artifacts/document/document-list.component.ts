@@ -63,7 +63,7 @@ export class DocumentListComponent implements OnInit {
          if ( urlSegments.length === 1 && urlSegments[ 0 ].path === 'documents' ) {
             this.retrieveDocuments();
          }
-      } );
+      });
    }
 
    public onAttach() {

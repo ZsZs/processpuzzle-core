@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, fakeAsync, tick, TestBed } from '@angular/core/testing';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
@@ -32,29 +32,29 @@ describe( 'DocumentListComponent', () => {
          imports: [ RouterTestingModule ],
          declarations: [ DocumentListComponent ],
          providers: [ JsonMapper, { provide: DocumentGateway, useValue: documentGatewayStub } ]
-      } ).compileComponents();
-   } ) );
+      }).compileComponents();
+   }));
 
    beforeEach( () => {
       fixture = TestBed.createComponent( DocumentListComponent );
       component = fixture.componentInstance;
 
       fixture.detectChanges();
-   } );
+   });
 
    it( 'should be created', () => {
       expect( component ).toBeTruthy();
-   } );
+   });
 
    it( 'creates a container: "div.collection" for document list', () => {
       const collectionContainer = fixture.debugElement.query( By.css( 'div.collection' )).nativeElement;
       expect( collectionContainer ).toBeTruthy();
-   } );
+   });
 
    it( 'creates a container: "div.modal-footer" for buttons', () => {
       const collectionContainer = fixture.debugElement.query( By.css( 'div.modal-footer' )).nativeElement;
       expect( collectionContainer ).toBeTruthy();
-   } );
+   });
 
    it( 'creates "New", "Open", "Delete", "Attach" buttons', () => {
       const buttons = fixture.debugElement.queryAll( By.css( 'div.modal-footer button' ));
@@ -64,7 +64,8 @@ describe( 'DocumentListComponent', () => {
       expect( buttons[3].nativeElement.textContent ).toContain( 'Attach' );
    });
 
-   it( 'retrieves all the document from the gateway', () => {
-
-   });
-} );
+   it( 'onInit() retrieves all the document from the gateway', fakeAsync(() => {
+      tick();
+      expect( component.documents ).toEqual( [testDocument] );
+   }));
+});

@@ -7,12 +7,11 @@ describe('ContentComponent', () => {
   let component: ContentComponent;
   let fixture: ComponentFixture<ContentComponent>;
 
-  beforeEach(async(() => {
+  beforeEach( async(() => {
     TestBed.configureTestingModule({
       imports: [ RouterTestingModule ],
       declarations: [ ContentComponent ]
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,7 +20,11 @@ describe('ContentComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should be created', () => {
+    expect( component ).toBeTruthy();
+  });
+
+  it('editContent() logs method invocation', () => {
+    expect( component.editContent() ).toBeUndefined();
   });
 });
