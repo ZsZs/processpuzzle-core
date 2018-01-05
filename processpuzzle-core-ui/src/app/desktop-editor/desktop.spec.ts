@@ -39,7 +39,7 @@ describe('Desktop', () => {
       desktop.watchDesktopChange().subscribe(( message: DesktopEvent ) => {
          expect( message ).toBe( DesktopEvent.DeleteBreadcrumb );
       });
-      
+
       desktop.deleteBreadCrumb();
       expect( desktop.breadCrumb ).toBeNull();
       tick();
@@ -50,7 +50,7 @@ describe('Desktop', () => {
       desktop.watchDesktopChange().subscribe(( message: DesktopEvent ) => {
          expect( message ).toBe( DesktopEvent.UpdateFooter );
       });
-      
+
       desktop.updateFooter( footer );
       expect( desktop.footer ).toBe( footer );
       tick();
@@ -62,9 +62,9 @@ describe('Desktop', () => {
       desktop.watchDesktopChange().subscribe(( message: DesktopEvent ) => {
          expect( message ).toBe( DesktopEvent.DeleteFooter );
       });
-      
+
       desktop.deleteFooter();
-      expect( desktop.footer ).toBeNull;
+      expect( desktop.footer ).toBeNull();
       tick();
    }));
 
@@ -73,7 +73,7 @@ describe('Desktop', () => {
       desktop.watchDesktopChange().subscribe(( message: DesktopEvent ) => {
          expect( message ).toBe( DesktopEvent.UpdateNavigationBar );
       });
-      
+
       desktop.updateNavigationBar( navigationBar );
       expect( desktop.navigationBar ).toBe( navigationBar );
       tick();
@@ -119,7 +119,7 @@ describe('Desktop', () => {
       desktop.watchContentAction().subscribe(( action: ContentActions ) => {
          expect( action ).toBe( ContentActions.EditContent );
       });
-      
+
       desktop.contentAction( ContentActions.EditContent );
       tick();
    }));

@@ -38,7 +38,7 @@ export class Desktop {
   contentAction( action: ContentActions ) {
     this.announceContentAction( action );
   }
-  
+
   deleteBreadCrumb () {
     this._breadCrumb = null;
     this.announceDesktopChanged( DesktopEvent.DeleteBreadcrumb );
@@ -93,7 +93,7 @@ export class Desktop {
   private announceContentAction( action: ContentActions ) {
     this.contentActionSubject.next( action );
   }
-  
+
   private announceDesktopChanged( message: DesktopEvent ) {
     this.desktopTemplateSource.next( message );
   }

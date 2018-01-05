@@ -18,20 +18,20 @@ import { ContentActions, Desktop } from './desktop';
 })
 
 export class DesktopEditorToolbarComponent implements OnInit {
-   @Output() onShowEditorEvent = new EventEmitter<boolean>();
+  @Output() onShowEditorEvent = new EventEmitter<boolean>();
 
   constructor( private desktop: Desktop ) { }
 
   // public accessors and mutators
 
-   // public accessors and mutators
-   onEditContent() {
-     this.desktop.contentAction( ContentActions.EditContent );
-   }
+  // public accessors and mutators
+  onEditContent() {
+    this.desktop.contentAction( ContentActions.EditContent );
+  }
 
-   onShowEditor() {
-      this.onShowEditorEvent.emit( true );
-   }
+  onShowEditor() {
+    this.onShowEditorEvent.emit( true );
+  }
 
   // event handling methods
   ngOnInit() {
